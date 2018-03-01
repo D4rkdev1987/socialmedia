@@ -1,0 +1,45 @@
+run.config:
+
+  # Engine
+  engine: ruby
+
+  # Configuration used by the engine
+  engine.config:
+    runtime: ruby-2.3
+
+  # Contents of these dirs to be cached inside of Nanobox
+  cache_dirs:
+    - packages
+
+  # Extra Packages (in addition to what the engine installs)
+  extra_packages:
+    - nodejs
+    - newrelic
+    - pkgconf
+    - libxml2
+    - libxslt
+
+  # Dev Packages
+  dev_packages:
+    - psutils
+
+  # Build Triggers - Changes to these files automatically
+  # trigger a new build the next time a build is required.
+  build_triggers:
+    - Gemfile
+    - Gemfile.lock
+    - package.json
+
+  # Additions to $PATH
+  extra_path_dirs:
+    - vendor/bin
+
+  # Custom commands to prepare the environment
+  extra_steps:
+    - npm install
+
+  # Enable filesystem watcher
+  fs_watch: true
+
+data.db:
+  image: nanobox/postgresql:9.5  

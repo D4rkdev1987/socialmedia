@@ -1,0 +1,1 @@
+--use-system-libraries --with-xml2-config=/data/bin/xml2-config --with-xslt-config=/data/bin/xslt-config
